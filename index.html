@@ -7,26 +7,37 @@
 </head>
 <body>
     <form id="myForm">
-        <label for="data">ID:</label>
-        <input type="text" id="data" name="id" required>
-        <label for="data">Name:</label>
-        <input type="text" id="data" name="name" required>
-        <label for="data">Profession:</label>
-        <input type="text" id="data" name="profession" required>
-        <label for="data">Gender:</label>
-        <input type="text" id="data" name="gender" required>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" name="profession" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+           
+        </select>
+
         <button type="button" onclick="submitForm()">Submit</button>
     </form>
-
     <script>
         function submitForm() {
             var formData = {
-                data: document.getElementById("data").value
+                id: document.getElementById("id").value,
+                name: document.getElementById("name").value,
+                profession: document.getElementById("profession").value,
+                gender: document.getElementById("gender").value
             };
-            alert('submitted')
+
+            alert('submitted');
 
             // Using JavaScript Fetch API to send data to the backend
-            fetch('http://localhost:8080/submitData', {
+            fetch('http://localhost:8085/api/v1/students', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
