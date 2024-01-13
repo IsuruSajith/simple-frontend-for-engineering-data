@@ -8,7 +8,7 @@ function submitForm() {
 
     alert('submitted');
 
-    // Using JavaScript Fetch API to send data to the backend
+
     fetch('http://localhost:8085/api/v1/students', {
         method: 'POST',
         headers: {
@@ -19,4 +19,30 @@ function submitForm() {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
+}
+
+function getAllData() {
+   
+    fetch('http://localhost:8085/api/v1/students')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        
+        displayData(data);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function displayData(data) {
+    var displayDiv = document.getElementById("displayData");
+    displayDiv.innerHTML = "<h2>Received Data:</h2>";
+
+   
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            var pElement = document.createElement("p");
+            pElement.innerHTML = key + ": " + data[key];
+            displayDiv.appendChild(pElement);
+        }
+    }
 }
