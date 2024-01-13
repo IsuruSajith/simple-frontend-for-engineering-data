@@ -7,8 +7,8 @@
 </head>
 <body>
     <form id="myForm">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required>
+        <label for="studentIndex">Student Index:</label>
+        <input type="text" id="studentIndex" name="studentIndex" required>
 
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -20,15 +20,15 @@
         <select id="gender" name="gender" required>
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>
-           
         </select>
 
         <button type="button" onclick="submitForm()">Submit</button>
     </form>
+
     <script>
         function submitForm() {
             var formData = {
-                id: document.getElementById("id").value,
+                studentIndex: document.getElementById("studentIndex").value,
                 name: document.getElementById("name").value,
                 profession: document.getElementById("profession").value,
                 gender: document.getElementById("gender").value
